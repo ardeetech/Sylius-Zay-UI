@@ -1,0 +1,8 @@
+<a class="position-relative text-decoration-none dropdown-toggle"
+   href="#" data-toggle="dropdown" id="sylius-cart-total" {{ sylius_test_html_attribute('cart-total') }}>
+    <i class="fa fa-fw fa-cart-arrow-down text-dark mr-1"></i>
+    <span
+        class="position-absolute top-0 right-0 translate-middle badge rounded-pill bg-light text-dark">
+        {{ cart.items|length }}
+    </span>
+</a>

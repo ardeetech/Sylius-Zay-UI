@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+
+<html lang="{{ app.request.locale|slice(0, 2) }}">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>{% block title %}{{ sylius.channel.name }}{% endblock %}</title>
+
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+
+    {% block metatags %}
+    {% endblock %}
+
+    {% block stylesheets %}
+        {{ sylius_template_event('sylius.shop.layout.stylesheets') }}
+    {% endblock %}
+
+    {{ sylius_template_event('sylius.shop.layout.head') }}
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&amp;display=swap">
+</head>
+
+<body class="d-flex flex-column min-vh-100 {% block bodyClass %}{% endblock %}">
+{{ sylius_template_event('sylius.shop.layout.before_body') }}
+
+{% block top %}
+    <nav class="navbar navbar-expand-lg bg-dark navbar-light d-none d-lg-block py-2" id="ardee_nav_top">
+        <div class="container text-light">
+            <div class="w-100 d-flex justify-content-between align-items-center">
+                <div>
+                    <i class="fa fa-envelope mx-2"></i>
+                    <a class="navbar-sm-brand text-light text-decoration-none" href="mailto:{{ sylius.channel.contactEmail }}">{{ sylius.channel.contactEmail }}</a>
+                    <i class="fa fa-phone mx-2"></i>
+                    <a class="navbar-sm-brand text-light text-decoration-none" href="tel:{{ sylius.channel.contactPhoneNumber }}">{{ sylius.channel.contactPhoneNumber }}</a>
+                </div>
+                <div>
+                    {{ sylius_template_event('sylius.shop.layout.topbar') }}
+                </div>
+            </div>
+        </div>
+    </nav>
+{% endblock %}
+
+{% block header %}
+    <div class="mb-2">
+        {{ sylius_template_event('sylius.shop.layout.header') }}
+    </div>
+{% endblock %}
+
+<div class="content-wrapper {% block contentWrapperClass %}{% endblock %}">
+    <div class="main-content {% block mainContentClass %}container{% endblock %}">
+        {% include '@SyliusShop/_flashes.html.twig' %}
+
+        {{ sylius_template_event('sylius.shop.layout.before_content') }}
+
+        {% block content %}
+        {% endblock %}
+
+        {{ sylius_template_event('sylius.shop.layout.after_content') }}
+    </div>
+</div>
+
+{% block footer %}
+    {% include '@SyliusShop/_footer.html.twig' %}
+{% endblock %}
+
+{% block javascripts %}
+    {{ sylius_template_event('sylius.shop.layout.javascripts') }}
+{% endblock %}
+
+{{ sylius_template_event('sylius.shop.layout.after_body') }}
+
+<div class="loading-overlay" data-js-loading-overlay>
+    <div class="spinner-border" role="status">
+        <span class="sr-only">Loading...</span>
+    </div>
+</div>
+
+<style>
+    .btn-primary, .alert-primary, .badge-primary {
+        background-color: {{ sylius.channel.color }} !important;
+        border-color: {{ sylius.channel.color }} !important;
+    }
+    .text-primary, #ardee_main_nav a:hover, .shop-top-menu a:hover, #ardee_footer a:hover {
+        color: {{ sylius.channel.color }} !important;
+    }
+    .bg-primary {
+        background-color: {{ sylius.channel.color }} !important;
+    }
+</style>
+
+</body>
+</html>

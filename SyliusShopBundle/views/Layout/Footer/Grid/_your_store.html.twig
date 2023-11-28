@@ -1,0 +1,22 @@
+<div class="col mb-3">
+    <h2 class="h2 text-primary border-bottom pb-3 border-light logo w-100">
+        {{ sylius.channel.name }}
+    </h2>
+    <ul class="list-unstyled text-light footer-link-list">
+        <li>
+            <i class="fas fa-map-marker-alt fa-fw"></i>
+            {{ sylius.channel.shopBillingData.street }}
+            {{ sylius.channel.shopBillingData.city }}
+            {{ sylius.channel.shopBillingData.postcode }}
+            {{ sylius.channel.shopBillingData.countryCode }}
+        </li>
+        <li>
+            <i class="fa fa-phone fa-fw"></i>
+            <a class="text-decoration-none" href="tel:{{ sylius.channel.contactPhoneNumber }}">{{ sylius.channel.contactPhoneNumber }}</a>
+        </li>
+        <li>
+            <i class="fa fa-envelope fa-fw"></i>
+            <a class="text-decoration-none" href="mailto:{{ sylius.channel.contactEmail }}">{{ sylius.channel.contactEmail }}</a>
+        </li>
+    </ul>
+</div>

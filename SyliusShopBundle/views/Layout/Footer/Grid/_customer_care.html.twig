@@ -1,0 +1,15 @@
+{# <div class="col mb-3"> #}
+{#    <h4>{{ 'sylius.ui.customer_care'|trans }}</h4> #}
+{#    <div class="d-flex flex-column"> #}
+{#        <a class="text-muted" href="{{ path('sylius_shop_contact_request') }}">{{ 'sylius.ui.contact_us'|trans }}</a> #}
+{#        <a class="text-muted" href="#">{{ 'sylius.ui.faqs'|trans }}</a> #}
+{#        <a class="text-muted" href="#">{{ 'sylius.ui.delivery_and_shipping'|trans }}</a> #}
+{#        <a class="text-muted" href="#">{{ 'sylius.ui.returns_policy'|trans }}</a> #}
+{#    </div> #}
+{# </div> #}
+<div class="col mb-3">
+    <h2 class="h2 text-light border-bottom pb-3 border-light">Products</h2>
+    <ul class="list-unstyled text-light footer-link-list">
+        {{ render(url('sylius_shop_partial_channel_menu_taxon_index', {'template': '@SyliusShop/Taxon/_parentTaxons.html.twig'})) }}
+    </ul>
+</div>

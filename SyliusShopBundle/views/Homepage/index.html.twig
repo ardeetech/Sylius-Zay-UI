@@ -1,0 +1,9 @@
+{% extends '@SyliusShop/layout.html.twig' %}
+
+{% block mainContentClass %}container-fluid{% endblock %}
+
+{% block content %}
+    <div class="homepage mt--2">
+        {{ sylius_template_event('sylius.shop.homepage') }}
+    </div>
+{% endblock %}

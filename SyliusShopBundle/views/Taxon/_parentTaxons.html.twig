@@ -1,0 +1,12 @@
+{% if taxons|length > 0 %}
+    <ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto">
+        {% for taxon in taxons %}
+            <li class="nav-item pt-0">
+                <a href="{{ path('sylius_shop_product_index', {'slug': taxon.slug, '_locale': taxon.translation.locale}) }}"
+                   class="nav-link" {{ sylius_test_html_attribute('menu-item') }}>
+                    {{ taxon.name }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endif %}
